@@ -17,3 +17,10 @@ How to clone from GitHub :
 2. Open a terminal or command prompt and navigate to the root directory of the project.
 3. Run the following command to install the required dependencies:  npm install
 4. Run the following command to start the development server: npm start
+
+Library List to Install : 
+1. npm install --save-dev @babel/plugin-proposal-private-property-in-object
+2. npm install antd --save
+3. npm install react-router-dom
+4. npm install chart.js react-chartjs-2
+5. npm install --save gh-pages
