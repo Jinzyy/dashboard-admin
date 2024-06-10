@@ -2,7 +2,7 @@ import {
   ShoppingCartOutlined,
   ShoppingOutlined,
   UserOutlined,
-  DollarOutlined,
+  RiseOutlined,
 } from "@ant-design/icons";
 import { Card, Space, Statistic, Table, Typography } from "antd";
 import { useEffect, useState } from "react";
@@ -110,7 +110,7 @@ function Dashboard() {
           />
           <DashboardCard
             icon={
-              <DollarOutlined
+              <RiseOutlined
                 style={{
                   color: "red",
                   backgroundColor: "rgba(255,0,0,0.25)",
@@ -167,7 +167,7 @@ function RecentOrders() {
 
   return (
     <>
-      <Typography.Text>Daftar Pesanan</Typography.Text>
+      <Typography.Title level={4}>Daftar Pesanan</Typography.Title>
       <Table
         columns={[
           {
