@@ -4,6 +4,7 @@ import {
   ShoppingCartOutlined,
   UserOutlined,
   TeamOutlined,
+  FileAddOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -27,6 +28,11 @@ function SideMenu() {
             label: "Penyimpanan",
             icon: <ShopOutlined />,
             key: "/inventory",
+          },
+          {
+            label: "Tambah Barang",
+            icon: <FileAddOutlined />,
+            key: "/tambah",
           },
           {
             label: "Daftar Transaksi",

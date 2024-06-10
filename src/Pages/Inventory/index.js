@@ -1,4 +1,4 @@
-import { Space, Typography, Table, Avatar, Rate } from "antd";
+import { Space, Typography, Table, Button } from "antd";
 import { useEffect, useState } from "react";
 import { getInventory } from "../../API";
 
@@ -20,6 +20,16 @@ function Inventory() {
       });
   }, []);
 
+  const handleEdit = (record) => {
+    console.log("Edit:", record);
+    // Tambahkan logika untuk mengedit barang
+  };
+
+  const handleDelete = (record) => {
+    console.log("Delete:", record);
+    // Tambahkan logika untuk menghapus barang
+  };
+
   return (
     <div>
       <Space size={20} direction="vertical">
@@ -34,11 +44,29 @@ function Inventory() {
             {
               title: "Harga",
               dataIndex: "price",
-              render: (value) => <span>${value}</span>,
+              render: (value) => <span>Rp {value.toLocaleString()}</span>,
             },
             {
               title: "Nama Supplier",
               dataIndex: "brand",
+            },
+            {
+              title: "Aksi",
+              dataIndex: "aksi",
+              render: (_, record) => (
+                <Space size="middle">
+                  <Button type="primary" onClick={() => handleEdit(record)}>
+                    Edit
+                  </Button>
+                  <Button
+                    type="primary"
+                    danger
+                    onClick={() => handleDelete(record)}
+                  >
+                    Hapus
+                  </Button>
+                </Space>
+              ),
             },
           ]}
           dataSource={dataSource}
