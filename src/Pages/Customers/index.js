@@ -26,35 +26,16 @@ function Customers() {
   return (
     <div>
       <Space style={20} direction="vertical">
-        <Typography.Title level={4}>Customers</Typography.Title>
+        <Typography.Title level={4}>Pelanggan</Typography.Title>
         <Table
           columns={[
             {
-              title: "Photo",
-              dataIndex: "image",
-              render: (link) => {
-                return <Avatar src={link} />;
-              },
-            },
-            {
-              title: "First Name",
+              title: "Nama Pelanggan",
               dataIndex: "firstName",
             },
             {
-              title: "Last Name",
-              dataIndex: "lastName",
-            },
-            {
-              title: "Gender",
+              title: "Alamat Pengiriman",
               dataIndex: "gender",
-            },
-            {
-              title: "Age",
-              dataIndex: "age",
-            },
-            {
-              title: "Email",
-              dataIndex: "email",
             },
           ]}
           dataSource={dataSource}

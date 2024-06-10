@@ -3,6 +3,7 @@ import {
   ShopOutlined,
   ShoppingCartOutlined,
   UserOutlined,
+  TeamOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -18,24 +19,29 @@ function SideMenu() {
         }}
         items={[
           {
-            label: "Dashboard",
+            label: "Beranda",
             icon: <AppstoreOutlined />,
             key: "/",
           },
           {
-            label: "Inventory",
+            label: "Penyimpanan",
             icon: <ShopOutlined />,
             key: "/inventory",
           },
           {
-            label: "Orders",
+            label: "Daftar Transaksi",
             icon: <ShoppingCartOutlined />,
             key: "/orders",
           },
           {
-            label: "Customers",
+            label: "Daftar Pelanggan",
             icon: <UserOutlined />,
             key: "/customers",
+          },
+          {
+            label: "Daftar Supplier",
+            icon: <TeamOutlined />,
+            key: "/supplier",
           },
         ]}
       ></Menu>

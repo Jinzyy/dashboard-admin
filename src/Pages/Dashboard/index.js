@@ -62,7 +62,7 @@ function Dashboard() {
   return (
     <div>
       <Space size={12} direction="vertical">
-        <Typography.Title level={4}>Dashboard</Typography.Title>
+        <Typography.Title level={4}>Beranda</Typography.Title>
         <Space direction="horizontal">
           <DashboardCard
             icon={
@@ -76,7 +76,7 @@ function Dashboard() {
                 }}
               />
             }
-            title={"Orders"}
+            title={"Total Pesanan"}
             value={orders}
           />
           <DashboardCard
@@ -91,7 +91,7 @@ function Dashboard() {
                 }}
               />
             }
-            title={"Inventory"}
+            title={"Total Barang"}
             value={inventory}
           />
           <DashboardCard
@@ -106,7 +106,7 @@ function Dashboard() {
                 }}
               />
             }
-            title={"Customer"}
+            title={"Pelanggan"}
             value={customer}
           />
           <DashboardCard
@@ -121,13 +121,12 @@ function Dashboard() {
                 }}
               />
             }
-            title={"Revenue"}
+            title={"Pendapatan"}
             value={revenue}
           />
         </Space>
         <Space>
           <RecentOrders />
-          <DashboardChart />
         </Space>
       </Space>
     </div>
@@ -169,19 +168,23 @@ function RecentOrders() {
 
   return (
     <>
-      <Typography.Text>Recent Orders</Typography.Text>
+      <Typography.Text>Daftar Pesanan</Typography.Text>
       <Table
         columns={[
           {
-            title: "Title",
+            title: "Kode Pesanan",
+            dataIndex: "",
+          },
+          {
+            title: "Nama Barang",
             dataIndex: "title",
           },
           {
-            title: "Price",
+            title: "Harga",
             dataIndex: "price",
           },
           {
-            title: "Quantity",
+            title: "Jumlah Barang",
             dataIndex: "quantity",
           },
           {
@@ -189,8 +192,8 @@ function RecentOrders() {
             dataIndex: "total",
           },
           {
-            title: "Total Discount",
-            dataIndex: "discountedTotal",
+            title: "Status Pesanan",
+            dataIndex: "",
           },
         ]}
         loading={loading}
@@ -198,60 +201,6 @@ function RecentOrders() {
         pagination={false}
       />
     </>
-  );
-}
-
-function DashboardChart() {
-  const [revenueData, setRevenueData] = useState({
-    labels: [],
-    datasets: [],
-  });
-
-  useEffect(() => {
-    getRevenue()
-      .then((res) => {
-        if (res && Array.isArray(res.carts)) {
-          const labels = res.carts.map((cart) => `User-${cart.userId}`);
-          const data = res.carts.map((cart) => cart.discountedTotal);
-
-          const dataSource = {
-            labels,
-            datasets: [
-              {
-                label: "Revenue",
-                data: data,
-                backgroundColor: "rgba(255, 99, 132, 0.5)",
-              },
-            ],
-          };
-
-          setRevenueData(dataSource);
-        } else {
-          console.error("Unexpected response structure:", res);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching revenue data:", error);
-      });
-  }, []);
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "bottom",
-      },
-      title: {
-        display: true,
-        text: "Order Revenue",
-      },
-    },
-  };
-
-  return (
-    <Card style={{ width: 500, height: 250 }}>
-      <Bar options={options} data={revenueData} />
-    </Card>
   );
 }
 

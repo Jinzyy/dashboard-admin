@@ -26,38 +26,34 @@ function Orders() {
   return (
     <div>
       <Space style={20} direction="vertical">
-        <Typography.Title level={4}>Orders</Typography.Title>
+        <Typography.Title level={4}>Transaksi</Typography.Title>
         <Table
           columns={[
             {
-              title: "Thumbnail",
-              dataIndex: "thumbnail",
-              render: (link) => {
-                return <Avatar src={link} />;
-              },
+              title: "Kode Pesanan",
+              dataIndex: "",
             },
             {
-              title: "Title",
+              title: "Nama Barang",
               dataIndex: "title",
             },
             {
-              title: "Price",
+              title: "Harga Barang",
               dataIndex: "price",
-              render: (value) => <span>${value}</span>,
+              render: (value) => <span>Rp{value}</span>,
             },
             {
-              title: "Quantity",
+              title: "Jumlah Barang",
               dataIndex: "quantity",
             },
             {
-              title: "Total",
+              title: "Harga Total",
               dataIndex: "total",
-              render: (value) => <span>${value}</span>,
+              render: (value) => <span>Rp{value}</span>,
             },
             {
-              title: "Total Discount",
-              dataIndex: "discountedTotal",
-              render: (value) => <span>${value}</span>,
+              title: "Status",
+              dataIndex: "",
             },
           ]}
           loading={loading}
